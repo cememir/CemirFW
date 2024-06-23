@@ -3,7 +3,7 @@
 CemirFW is a lightweight framework for building REST APIs using Tornado. It provides decorators to register routes for different HTTP methods (GET, POST, PUT, DELETE) and handles HTTP requests accordingly.
 
 ## Version
-Current Version: 0.1.2
+Current Version: 1.0.1
 
 ## Features
 - Register routes with decorators (`get`, `post`, `put`, `delete`).
