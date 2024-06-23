@@ -1,7 +1,7 @@
 from .cemirfw import *
 
 __all__ = [
-    'ver'
+    'CemirFW'
 ]
 
 author = 'Cem Emir Yüksektepe'

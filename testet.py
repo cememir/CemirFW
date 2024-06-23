@@ -1,17 +1,26 @@
 import requests
-import json
 
-url = 'http://localhost:8000/data'
-headers = {
-    'Authorization': 'valid_token',  # Giriş gerekliliği için gerekli
-    'Content-Type': 'application/json'
+response = requests.get('http://localhost:8080/user')
+print(response.json())  # [{ "user_id": 1 }, { "user_id": 2 }]
+
+response = requests.get('http://localhost:8080/user/1')
+print(response.json())  # { "user_id": "1", "user_agent": "..." }
+
+user_data = {
+    "name": "John Doe",
+    "email": "john.doe@example.com"
 }
-data = {
-    'key1': 'value1',
-    'key2': 'value2'
+
+response = requests.post('http://localhost:8080/user', json=user_data)
+print(response.json())  # { "message": "User created successfully", "data": { "name": "John Doe", "email": "john.doe@example.com" } }
+
+updated_user_data = {
+    "name": "Jane Doe",
+    "email": "jane.doe@example.com"
 }
 
-response = requests.post(url, headers=headers, data=json.dumps(data))
+response = requests.put('http://localhost:8080/user/1', json=updated_user_data)
+print(response.json())  # { "message": "User 1 updated", "data": { "name": "Jane Doe", "email": "jane.doe@example.com" } }
 
-print('Status Code:', response.status_code)
-print('Response JSON:', response.json())
+response = requests.delete('http://localhost:8080/user/1')
+print(response.json())  # { "message": "User 1 deleted" }

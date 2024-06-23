@@ -1,17 +1,17 @@
-# setup.py
-
 from setuptools import setup, find_packages
 
-from cemirfw import ver
+ver = "1.0.1"
 
 setup(
     name='cemirfw',
     version=ver,
     packages=find_packages(),
-    install_requires=[],
+    install_requires=[
+        'tornado',
+    ],
     author='Cem Emir Yüksektepe / Muslu Yüksektepe (musluyuksektepe@gmail.com)',
     author_email='cememir2017@gmail.com',
-    description='Fast and Basic Async Python Framework...',
+    description='CemirFW is a lightweight framework for building REST APIs using Tornado. It provides decorators to register routes for different HTTP methods (GET, POST, PUT, DELETE) and handles HTTP requests accordingly.',
     long_description=open('README.md', encoding="utf-8").read(),
     long_description_content_type='text/markdown',
     url='https://github.com/cememir/cemirfw',
